@@ -15,6 +15,10 @@ service Greeter {
   rpc SayHello (HelloRequest) returns (HelloReply)  {
         option (google.api.http) = {
             get: "/helloworld/{name}"
+            additional_bindings {
+                post: "/v1/greeter/say_hello",
+                body: "*",
+            }
         };
     }
 }
